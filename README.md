@@ -1,6 +1,8 @@
 ### learn gulp
+
 运行
 ~~~sh
+git checkout master
 npm install
 ~~~
 #### 组件介绍
@@ -62,4 +64,29 @@ gulp.task('watch', function(){
 gulp
 ~~~sh
 gulp.task('default',['watch']);
+~~~
+
+### 编译ESCMASCRIPT6
+~~~sh
+git checkout learn.01
+npm install
+~~~
+#### 组件介绍
+~~~sh
+import babel from 'gulp-babel';
+~~~
+##### 合并脚本
+gulp concat
+~~~sh
+gulp.task('concat', function() {
+    return gulp.src('src/*.js')
+        .pipe(babel())
+        .pipe(concat('all.js'))
+        //压缩文件的后缀名
+        .pipe(rename({ suffix: '.min'}))
+        //合并到libs目录
+        .pipe(gulp.dest('libs'))
+        //合并完成的提示
+        .pipe(notify({message: 'concat is ok...'}));
+});
 ~~~
