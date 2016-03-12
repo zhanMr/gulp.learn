@@ -1,7 +1,15 @@
 ### learn gulp
 运行
- - npm install
-
+~~~sh
+npm install
+~~~
+#### 组件介绍
+~~~sh
+var concat = require('gulp-concat'); //合并
+var notify = require('gulp-notify'); //完成提示
+var rename = require('gulp-rename'); //添加后缀
+var uglify = require('gulp-uglify'); //压缩
+~~~
 ##### 合并脚本
 gulp concat
 ~~~sh
