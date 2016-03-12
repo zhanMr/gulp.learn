@@ -1,11 +1,13 @@
-var gulp = require('gulp');
-var concat = require('gulp-concat');
-var notify = require('gulp-notify');
-var rename = require('gulp-rename');
-var uglify = require('gulp-uglify');
+import gulp from 'gulp';
+import concat from 'gulp-concat';
+import notify from 'gulp-notify';
+import rename from 'gulp-rename';
+import uglify from 'gulp-uglify';
+import babel from 'gulp-babel';
 //合并代码
 gulp.task('concat', function() {
     return gulp.src(['src/*.js'])
+        .pipe(babel())
         .pipe(concat('all.js'))
         //压缩文件的后缀名
         .pipe(rename({ suffix: '.min'}))
